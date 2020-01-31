@@ -1,0 +1,33 @@
+{
+  "name": "@codecompanion/react-bootstrap-components",
+  "version": "1.0.0",
+  "description": "A React wrapper around bootstrap components",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo No test script defined",
+    "commit": "git cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niels-van-den-broeck/react-bootstrap-components.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "niels-van-den-broeck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niels-van-den-broeck/react-bootstrap-components/issues"
+  },
+  "homepage": "https://github.com/niels-van-den-broeck/react-bootstrap-components#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
