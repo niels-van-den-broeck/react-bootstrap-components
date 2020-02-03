@@ -22,5 +22,8 @@
     "./build",
     "**/*.spec.ts",
     "**/*.spec.tsx",
+    "./jest.setup.ts",
+    "./tests",
+    "./docs"
   ]
 }
