@@ -1,6 +1,6 @@
 {
   "name": "@codecompanion/react-bootstrap-components",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A React wrapper around bootstrap components",
   "main": "./build/lib/index.js",
   "scripts": {
