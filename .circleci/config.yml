@@ -57,7 +57,3 @@ workflows:
       - test:
           requires:
             - build
-      - release:
-          requires:
-            - build
-            - test
