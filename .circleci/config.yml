@@ -1,0 +1,63 @@
+version: 2.1
+executors:
+  node_lts: # declares a reusable executor
+    docker:
+      - image: node:12.14.1
+    working_directory: ~/repo
+jobs:
+  build:
+    executor: node_lts
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - yarn-v12-{{ checksum "yarn.lock" }}
+
+      - run: yarn
+
+      - save_cache:
+          key: yarn-v12-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+
+      - run: yarn lint
+
+  test:
+    executor: node_lts
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - yarn-v12-{{ checksum "yarn.lock" }}
+
+      - run: yarn
+
+      - run: mkdir ~/jest
+
+      - run: JEST_JUNIT_OUTPUT_DIR=~/jest JEST_JUNIT_OUTPUT_NAME=test-unit-junit.xml yarn test -- --ci --reporters=default --reporters=jest-junit
+
+      - store_test_results:
+          path: ~/jest
+
+      - store_artifacts:
+          path: ~/jest
+
+workflows:
+  version: 2
+  complete:
+    jobs:
+      - build:
+        filters:
+          branches:
+            ignore:
+              - master
+      - test:
+          requires:
+            - build
+      - release:
+          requires:
+            - build
+            - test
