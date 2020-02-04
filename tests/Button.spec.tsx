@@ -1,7 +1,7 @@
 import React from 'react';
 import { render as rtlRender, RenderResult } from '@testing-library/react';
 
-import { Button, ButtonProps } from '../../src/lib/Button/Button';
+import { Button, ButtonProps } from '../src/lib/Button/Button';
 
 describe('Button component', () => {
     function render({ variant, type }: ButtonProps = {}): RenderResult {
@@ -16,6 +16,4 @@ describe('Button component', () => {
         expect(button).toHaveAttribute('type', 'button');
         expect(button).toHaveTextContent('A button');
     });
-
-
 });

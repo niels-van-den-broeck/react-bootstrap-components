@@ -24,6 +24,6 @@
     "**/*.spec.tsx",
     "./jest.setup.ts",
     "./tests",
-    "./docs"
+    "./src/docs"
   ]
 }
