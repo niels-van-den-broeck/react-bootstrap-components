@@ -1,6 +1,7 @@
 import React from 'react';
+import { withChildren } from '../../Types/Types';
 
-export type ButtonProps = {
+export type ButtonProps = withChildren<{
   variant: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark';
   type: 'button' | 'submit';
   onClick: () => void;
@@ -8,7 +9,7 @@ export type ButtonProps = {
   id?: string;
   className?: string;
   children?: React.ReactNode;
-};
+}>
 
 export function Button({
   type = "button",
